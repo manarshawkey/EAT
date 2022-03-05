@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">EAT</string>
+    <string name="button_test_message_passing">Test Message Passing</string>
 </resources>
