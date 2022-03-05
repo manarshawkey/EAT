@@ -1,5 +1,10 @@
 package com.example.android.eat;
 
+/**
+ * This project is intended to be a working of the examples
+ * included in Efficient Android Threads Book.
+ */
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
