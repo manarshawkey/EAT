@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.os.MessageQueue;
 import android.util.Log;
 import android.widget.Button;
 
@@ -72,7 +73,7 @@ public class LooperActivity extends AppCompatActivity {
              * the Looper of the current thread, that we just attached to
              * the thread in the previous step.
              */
-            mHandler = new Handler(){
+            mHandler = new Handler(Looper.myLooper()){
 
                 /**
                  * This callback runs when the message has been dispatched
