@@ -21,6 +21,7 @@ public class LooperActivity extends AppCompatActivity {
 
     LooperThread mLooperThread;
     private static final String LOG_TAG = LooperActivity.class.getSimpleName();
+    private final ConsumeAndQuitThread mConsumeAndQuitThread = new ConsumeAndQuitThread();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -50,6 +51,19 @@ public class LooperActivity extends AppCompatActivity {
                  * Insert the message in the queue.
                  */
                 mLooperThread.mHandler.sendMessage(msg);
+            }
+        });
+
+        mConsumeAndQuitThread.start();
+        Button consumeAndQuitButton = findViewById(R.id.button_consumeAndQuit);
+        consumeAndQuitButton.setOnClickListener(view -> {
+            Log.d(LOG_TAG, "consume and quit button clicked");
+            for(int i = 0; i < 10; i++){
+                int finalI = i;
+                new Thread(()->{
+                   //SystemClock.sleep(new Random().nextInt(10));
+                   mConsumeAndQuitThread.enqueueData(finalI);
+                }).start();
             }
         });
     }
@@ -133,5 +147,53 @@ public class LooperActivity extends AppCompatActivity {
          */
 
         mLooperThread.mHandler.getLooper().quit();
+    }
+
+    private static class ConsumeAndQuitThread extends Thread implements MessageQueue.IdleHandler{
+
+        public Handler mHandler;
+        private boolean isFirstIdle = true;
+
+        public ConsumeAndQuitThread(){
+            super("ConsumeAndQuitThread"); //define thread name
+        }
+
+        @Override
+        public void run() {
+            Looper.prepare();
+
+            mHandler = new Handler(Looper.myLooper()){
+                @Override
+                public void handleMessage(@NonNull Message msg) {
+                    Log.d(LOG_TAG, "consuming message: " + msg.what);
+                }
+            };
+            Log.d(LOG_TAG, "adding an idle handler.");
+            Looper.myQueue().addIdleHandler(this);
+            Looper.loop();
+        }
+
+
+        @Override
+        public boolean queueIdle() {
+            if(isFirstIdle){ //true only when the queue is first empty, let it pass
+                Log.d(LOG_TAG, "Message queue is first idle.");
+                isFirstIdle = false;
+                return true; //the idleHandler is still active and can receive tasks to execute
+            }
+            //it is idle after executing all the messages in the queue,
+            //time to terminate the thread
+            Log.d(LOG_TAG, "terminating the thread, when the queue" +
+                    " is idle after processing the all the messages.");
+            mHandler.getLooper().quit();
+            return false;
+        }
+        public void enqueueData(int i){
+            //if(mHandler != null){
+                Log.d(LOG_TAG, "enqueueing message: " + i);
+                Message msg = mHandler.obtainMessage(i);
+                mHandler.sendMessage(msg);
+            //}
+        }
     }
 }
