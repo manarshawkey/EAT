@@ -174,6 +174,14 @@ public class LooperActivity extends AppCompatActivity {
         }
 
 
+        /*
+         * This use case is only effective when the producer threads
+         * enqueue messages without delay, because only then the queue
+         * will be idle at the very beginning -no messages in the queue-
+         * and after processing all messages, that is no idle time
+         * between processing messages.
+         * THIS DOES NOT WORK AS EXPECTED THOUGH. CONTINUE DEBUGGING :)
+         */
         @Override
         public boolean queueIdle() {
             if(isFirstIdle){ //true only when the queue is first empty, let it pass
