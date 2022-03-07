@@ -165,6 +165,7 @@ public class LooperActivity extends AppCompatActivity {
             mHandler = new Handler(Looper.myLooper()){
                 @Override
                 public void handleMessage(@NonNull Message msg) {
+                    SystemClock.sleep(new Random().nextInt(3));
                     Log.d(LOG_TAG, "consuming message: " + msg.what);
                 }
             };
@@ -178,8 +179,8 @@ public class LooperActivity extends AppCompatActivity {
          * This use case is only effective when the producer threads
          * enqueue messages without delay, because only then the queue
          * will be idle at the very beginning -no messages in the queue-
-         * and after processing all messages, that is no idle time
-         * between processing messages.
+         * and after processing all messages, that the producer thread has
+         *  no idle time between processing messages.
          * THIS DOES NOT WORK AS EXPECTED THOUGH. CONTINUE DEBUGGING :)
          */
         @Override
