@@ -8,12 +8,14 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.MessageQueue;
+import android.os.SystemClock;
 import android.util.Log;
 import android.widget.Button;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Random;
 
 public class LooperActivity extends AppCompatActivity {
 
@@ -120,8 +122,16 @@ public class LooperActivity extends AppCompatActivity {
          * stops the dispatching of messages and releases Looper.loop()
          * from blocking so the run method can finish, leading to the
          * termination of the thread.
+         * quit(): no more message dispatching including messages that
+         * passed the dispatch barrier.
          */
+        /*
+         * quitSafely(): instead, discards messages that has not
+         * passed the dispatch barrier. Messages that have passed
+         * and ready to be dispatched are processed first, then
+         * the looper is terminated.
+         */
+
         mLooperThread.mHandler.getLooper().quit();
     }
-
 }
