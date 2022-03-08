@@ -165,8 +165,9 @@ public class LooperActivity extends AppCompatActivity {
             mHandler = new Handler(Looper.myLooper()){
                 @Override
                 public void handleMessage(@NonNull Message msg) {
-                    SystemClock.sleep(new Random().nextInt(3));
+                    SystemClock.sleep(new Random().nextInt(10));
                     Log.d(LOG_TAG, "consuming message: " + msg.what);
+                    Log.d(LOG_TAG, "args1: " + msg.arg1 + " args2: " + msg.arg2);
                 }
             };
             Log.d(LOG_TAG, "adding an idle handler.");
@@ -198,11 +199,30 @@ public class LooperActivity extends AppCompatActivity {
             return false;
         }
         public void enqueueData(int i){
-            //if(mHandler != null){
+            if(mHandler != null){
                 Log.d(LOG_TAG, "enqueueing message: " + i);
-                Message msg = mHandler.obtainMessage(i);
-                mHandler.sendMessage(msg);
-            //}
+
+               switch (i % 2){
+                    case 0:
+                        mHandler.sendMessage(constructSimpleDataMessage(i));
+                        break;
+                    case 1:
+                        mHandler.sendMessage(constructTaskMessage(i));
+                        break;
+                    default:
+                        break;
+               }
+            }
+        }
+        private Message constructSimpleDataMessage(int i){
+            return mHandler.obtainMessage(i, i+1, i+2);
+        }
+
+        private Message constructTaskMessage(int i){
+            return Message.obtain(mHandler, () -> {
+                SystemClock.sleep(1);
+                Log.d(LOG_TAG, "Executing a task Message: " + i);
+            });
         }
     }
 }
