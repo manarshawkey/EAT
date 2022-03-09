@@ -160,7 +160,12 @@ public class LooperActivity extends AppCompatActivity {
 
         @Override
         public void run() {
-            Looper.prepare();
+            /*
+            * Attempt to attach the main looper to another thread,
+            * throws a runtime exception
+            */
+            Looper.prepareMainLooper();
+            //Looper.prepare();
 
             mHandler = new Handler(Looper.myLooper()){
                 @Override
