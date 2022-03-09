@@ -1,5 +1,5 @@
 package com.example.android.eat;
-/**
+/*
  * Purpose: this example simulates a long-running operation
  * that is started when the user clicks a button. The long-running
  * operation is executed on a background thread, meanwhile, the UI thread

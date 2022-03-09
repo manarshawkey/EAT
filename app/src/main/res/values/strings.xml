@@ -2,4 +2,5 @@
     <string name="app_name">EAT</string>
     <string name="button_test_message_passing">Test Message Passing</string>
     <string name="consumeAndQuit">Consume all Messages and Quit Looper</string>
+    <string name="button_two_way_message_passing">Two Way Message Passing</string>
 </resources>

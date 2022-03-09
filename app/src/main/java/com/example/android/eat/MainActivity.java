@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +21,11 @@ public class MainActivity extends AppCompatActivity {
         TextView hello = findViewById(R.id.textView_hello);
         hello.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, LooperActivity.class);
+            MainActivity.this.startActivity(intent);
+        });
+        Button button_twoWayMessagePassing = findViewById(R.id.button_twoWayMessage);
+        button_twoWayMessagePassing.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, HandlerExampleActivity.class);
             MainActivity.this.startActivity(intent);
         });
     }
