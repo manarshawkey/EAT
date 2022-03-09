@@ -10,12 +10,17 @@ package com.example.android.eat;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 
 public class HandlerExampleActivity extends AppCompatActivity {
 
+    ProgressBar mProgressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handler_example);
+        mProgressBar = findViewById(R.id.progressBar);
+        mProgressBar.setVisibility(View.VISIBLE);
     }
 }
