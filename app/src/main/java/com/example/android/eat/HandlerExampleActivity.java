@@ -38,6 +38,10 @@ public class HandlerExampleActivity extends AppCompatActivity {
                     Log.d(LOG_TAG, "MainLooper is handling a message " +
                             "to show progress bar");
                     mProgressBar.setVisibility(View.VISIBLE);
+                }else if(msg.what == HIDE_PROGRESS_BAR){
+                    Log.d(LOG_TAG, "MainLooper is handling a message " +
+                            "to hide progress bar");
+                    mProgressBar.setVisibility(View.INVISIBLE);
                 }
             }
         };
@@ -73,11 +77,16 @@ public class HandlerExampleActivity extends AppCompatActivity {
         }
         public void doWork(){
             //obtain a message to show the progress bar in the main ui thread
-            Message uiMessage = Message.obtain(mUiHandler, SHOW_PROGRESS_BAR);
+            Message uiMessage = mUiHandler.obtainMessage(SHOW_PROGRESS_BAR);
+            Log.d(LOG_TAG, "enqueuing msg to show progress bar");
             mUiHandler.sendMessage(uiMessage);
             //sleep for a little while
-            int sleepTime = new Random().nextInt(3000);
-            SystemClock.sleep(sleepTime);
+            int sleepTime = new Random().nextInt(5000);
+            //SystemClock.sleep(sleepTime);
+            //obtain a message to hide progress bar in the main ui thread
+            uiMessage = mUiHandler.obtainMessage(HIDE_PROGRESS_BAR);
+            Log.d(LOG_TAG, "enqueuing msg to hide progress bar");
+            mUiHandler.sendMessageDelayed(uiMessage, sleepTime);
         }
         public void exit(){
             Log.d(LOG_TAG, "Background Thread Looper is quitting safely.");
