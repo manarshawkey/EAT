@@ -53,6 +53,11 @@ public class HandlerExampleActivity extends AppCompatActivity {
         mBackgroundThread.doWork();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mBackgroundThread.exit();
+    }
 
     private class BackgroundThread extends Thread{
         Handler mBackgroundHandler;
@@ -73,6 +78,10 @@ public class HandlerExampleActivity extends AppCompatActivity {
             //sleep for a little while
             int sleepTime = new Random().nextInt(3000);
             SystemClock.sleep(sleepTime);
+        }
+        public void exit(){
+            Log.d(LOG_TAG, "Background Thread Looper is quitting safely.");
+            mBackgroundHandler.getLooper().quitSafely();
         }
     }
 }
