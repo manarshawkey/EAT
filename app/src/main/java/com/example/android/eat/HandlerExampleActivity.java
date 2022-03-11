@@ -14,7 +14,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -52,6 +51,7 @@ public class HandlerExampleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handler_example);
         mProgressBar = findViewById(R.id.progressBar);
+        mProgressBar.setVisibility(View.INVISIBLE);
         mBackgroundThread = new BackgroundThread();
         mBackgroundThread.start();
         mBackgroundThread.doWork();
@@ -68,25 +68,30 @@ public class HandlerExampleActivity extends AppCompatActivity {
 
         @Override
         public void run() {
+            Log.d(LOG_TAG, "Background Thread run method.");
             //associate a looper with this thread
             Looper.prepare();
             //initialize a handler
-            mBackgroundHandler = new Handler(Looper.myLooper());
+            mBackgroundHandler = new Handler();
             //start dispatching messages
             Looper.loop();
         }
         public void doWork(){
-            //obtain a message to show the progress bar in the main ui thread
-            Message uiMessage = mUiHandler.obtainMessage(SHOW_PROGRESS_BAR);
-            Log.d(LOG_TAG, "enqueuing msg to show progress bar");
-            mUiHandler.sendMessage(uiMessage);
-            //sleep for a little while
-            int sleepTime = new Random().nextInt(5000);
-            //SystemClock.sleep(sleepTime);
-            //obtain a message to hide progress bar in the main ui thread
-            uiMessage = mUiHandler.obtainMessage(HIDE_PROGRESS_BAR);
-            Log.d(LOG_TAG, "enqueuing msg to hide progress bar");
-            mUiHandler.sendMessageDelayed(uiMessage, sleepTime);
+            Log.d(LOG_TAG, "BackgroundThread::doWork()");
+            mBackgroundHandler.post(() -> {
+                //obtain a message to show the progress bar in the main ui thread
+                Message uiMessage = mUiHandler.obtainMessage(SHOW_PROGRESS_BAR);
+                Log.d(LOG_TAG, "enqueuing msg to show progress bar");
+                mUiHandler.sendMessage(uiMessage);
+                //sleep for a little while
+                int sleepTime = new Random().nextInt(5000);
+                //SystemClock.sleep(sleepTime);
+                //obtain a message to hide progress bar in the main ui thread
+                uiMessage = mUiHandler.obtainMessage(HIDE_PROGRESS_BAR);
+                Log.d(LOG_TAG, "enqueuing msg to hide progress bar");
+                mUiHandler.sendMessageDelayed(uiMessage, sleepTime);
+            });
+
         }
         public void exit(){
             Log.d(LOG_TAG, "Background Thread Looper is quitting safely.");
