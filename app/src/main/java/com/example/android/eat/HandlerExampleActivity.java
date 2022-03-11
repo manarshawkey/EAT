@@ -78,6 +78,8 @@ public class HandlerExampleActivity extends AppCompatActivity {
         }
         public void doWork(){
             Log.d(LOG_TAG, "BackgroundThread::doWork()");
+            if(mBackgroundHandler == null)
+                mBackgroundHandler = new Handler();
             mBackgroundHandler.post(() -> {
                 //obtain a message to show the progress bar in the main ui thread
                 Message uiMessage = mUiHandler.obtainMessage(SHOW_PROGRESS_BAR);
