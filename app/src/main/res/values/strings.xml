@@ -5,6 +5,11 @@
     <string name="button_two_way_message_passing">Two Way Message Passing</string>
     <string name="handler_callback">Handler Callback</string>
     <string name="handler_callback_example">Handler callback example</string>
-    <string name="dialogMessage_handlerCallback">On pressing OK, a message will be enqueued and it will then be handled by the HandlerCallback handleMessage(). Watch the logs.</string>
+    <string name="dialogMessage_handlerCallback">On pressing OK, a message of what value \'1\' will be enqueued and it will then be handled by the HandlerCallback handleMessage(). Watch the logs.</string>
     <string name="ok">OK</string>
+    <string name="pass_on_message">Pass on Message</string>
+    <string name="dialogMessage_passOnMessage">On pressing OK, a message with what value of \'2\' will be enqueued,
+        it will then be attempted by the callback handleMessage but it will not be processed.
+        The message will be passed on to Handler.handleMessage() for further processing. Watch the logs.</string>
+    <string name="cancel">CANCEL</string>
 </resources>

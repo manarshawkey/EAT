@@ -15,13 +15,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 
 public class HandlerCallBackActivity extends AppCompatActivity
@@ -41,22 +38,29 @@ public class HandlerCallBackActivity extends AppCompatActivity
                         "Handler.handleMessage()");
             }
         };
-        Button button = findViewById(R.id.button_handlerCallback);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(HandlerCallBackActivity.this);
-                dialogBuilder.setTitle("Handler callback");
-                dialogBuilder.setMessage(R.string.dialogMessage_handlerCallback);
-                dialogBuilder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Message msg = mHandler.obtainMessage(1);
-                        mHandler.sendMessage(msg);
-                    }
-                });
-                dialogBuilder.create().show();
-            }
+        Button handlerCallback = findViewById(R.id.button_handlerCallback);
+        handlerCallback.setOnClickListener(view -> {
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(HandlerCallBackActivity.this);
+            dialogBuilder.setTitle("Handler callback");
+            dialogBuilder.setMessage(R.string.dialogMessage_handlerCallback);
+            dialogBuilder.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
+                Message msg = mHandler.obtainMessage(1);
+                mHandler.sendMessage(msg);
+            });
+            dialogBuilder.setNegativeButton(R.string.cancel, (dialogInterface, i) -> {});
+            dialogBuilder.create().show();
+        });
+        Button passOnMessage = findViewById(R.id.button_passOnMessage);
+        passOnMessage.setOnClickListener(view -> {
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(HandlerCallBackActivity.this);
+            dialogBuilder.setTitle("Pass on to Handler");
+            dialogBuilder.setMessage(R.string.dialogMessage_passOnMessage);
+            dialogBuilder.setPositiveButton(R.string.ok, (dialogInterface, i) -> {
+                Message msg = mHandler.obtainMessage(2);
+                mHandler.sendMessage(msg);
+            });
+            dialogBuilder.setNegativeButton(R.string.cancel, (dialogInterface, i) -> {});
+            dialogBuilder.create().show();
         });
     }
 
