@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -27,6 +28,19 @@ public class MainActivity extends AppCompatActivity {
         button_twoWayMessagePassing.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, HandlerExampleActivity.class);
             MainActivity.this.startActivity(intent);
+        });
+
+        setupHandlerCallbackButton();
+    }
+
+    private void setupHandlerCallbackButton() {
+        Button handlerCallback = findViewById(R.id.button_handlerCallbackExample);
+        handlerCallback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, HandlerCallBackActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
         });
     }
 }

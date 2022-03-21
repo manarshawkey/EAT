@@ -3,4 +3,8 @@
     <string name="button_test_message_passing">Test Message Passing</string>
     <string name="consumeAndQuit">Consume all Messages and Quit Looper</string>
     <string name="button_two_way_message_passing">Two Way Message Passing</string>
+    <string name="handler_callback">Handler Callback</string>
+    <string name="handler_callback_example">Handler callback example</string>
+    <string name="dialogMessage_handlerCallback">On pressing OK, a message will be enqueued and it will then be handled by the HandlerCallback handleMessage(). Watch the logs.</string>
+    <string name="ok">OK</string>
 </resources>
