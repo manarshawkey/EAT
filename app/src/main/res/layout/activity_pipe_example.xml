@@ -6,4 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".PipeExampleActivity">
 
+
+    <EditText
+        android:id="@+id/editText_pipeExample"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:inputType="text"
+        android:autofillHints="Any char written here will appear in the logs" />
+
+    <TextView
+        android:id="@+id/textView_pipeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_PipeEditText"
+        app:layout_constraintBottom_toTopOf="@+id/editText_pipeExample"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.833"
+        android:labelFor="@id/editText_pipeExample"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

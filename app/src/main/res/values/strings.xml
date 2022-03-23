@@ -12,4 +12,5 @@
         it will then be attempted by the callback handleMessage but it will not be processed.
         The message will be passed on to Handler.handleMessage() for further processing. Watch the logs.</string>
     <string name="cancel">CANCEL</string>
+    <string name="label_PipeEditText">Enter Some Text:</string>
 </resources>
