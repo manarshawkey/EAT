@@ -8,4 +8,4 @@ result to expect in the log messages.
 
 The Book is available at [O'reilly](https://learning.oreilly.com/library/view/efficient-android-threading/9781449364120/).
 
-<img src="screenshots/handlercallback1.png" width="250" height="500"> <img src="screenshots/handlercallback2.png" width="250" height="500"> <img src="screenshots/pipe.png" width="250" height="500"> <img src="screenshots/pipe_example_input.png" width="250" height="500"> <img src="screenshots/pipe_example_output.png" width="250" height="500">
+<img src="screenshots/handlercallback1.png" width="250" height="500"> <img src="screenshots/handlercallback2.png" width="250" height="500"> <img src="screenshots/pipe.png" width="250" height="500"> <img src="screenshots/pipe_example_input.png" width="250" height="500"> <img src="screenshots/pipe_example_output.png" width="800" height="300">
