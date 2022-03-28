@@ -8,6 +8,7 @@ package com.example.android.eat;
  */
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -50,6 +51,9 @@ public class HandlerExampleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handler_example);
+
+        setupActivityTitle();
+
         mProgressBar = findViewById(R.id.progressBar);
         mProgressBar.setVisibility(View.INVISIBLE);
         mBackgroundThread = new BackgroundThread();
@@ -97,6 +101,12 @@ public class HandlerExampleActivity extends AppCompatActivity {
         public void exit(){
             Log.d(LOG_TAG, "Background Thread Looper is quitting safely.");
             mBackgroundHandler.getLooper().quitSafely();
+        }
+    }
+    public void setupActivityTitle(){
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null){
+            actionBar.setTitle("Two Way Message Passing");
         }
     }
 }

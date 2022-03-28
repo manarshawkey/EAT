@@ -19,27 +19,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView hello = findViewById(R.id.textView_hello);
-        hello.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, LooperActivity.class);
-            MainActivity.this.startActivity(intent);
-        });
-        Button button_twoWayMessagePassing = findViewById(R.id.button_twoWayMessage);
-        button_twoWayMessagePassing.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, HandlerExampleActivity.class);
-            MainActivity.this.startActivity(intent);
-        });
 
-        setupHandlerCallbackButton();
-    }
 
-    private void setupHandlerCallbackButton() {
-        Button handlerCallback = findViewById(R.id.button_handlerCallbackExample);
-        handlerCallback.setOnClickListener(new View.OnClickListener() {
+        Button ch4 = findViewById(R.id.button_chapter4);
+        ch4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, HandlerCallBackActivity.class);
-                MainActivity.this.startActivity(intent);
+                Intent intent = new Intent(MainActivity.this,
+                        Ch4ThreadCommunicationActivity.class);
+                startActivity(intent);
             }
         });
     }

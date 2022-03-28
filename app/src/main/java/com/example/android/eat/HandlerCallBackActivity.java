@@ -12,6 +12,7 @@ package com.example.android.eat;
  * passed on to the Handler.handleMessage method.
  */
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -30,6 +31,8 @@ public class HandlerCallBackActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handler_call_back);
+
+        setupActivityTitle();
 
         mHandler = new Handler(this){
             @Override
@@ -77,6 +80,12 @@ public class HandlerCallBackActivity extends AppCompatActivity
                 return false;
             default:
                 return false;
+        }
+    }
+    private void setupActivityTitle(){
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null){
+            actionBar.setTitle("Handler Examples");
         }
     }
 }

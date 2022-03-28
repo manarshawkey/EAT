@@ -13,4 +13,5 @@
         The message will be passed on to Handler.handleMessage() for further processing. Watch the logs.</string>
     <string name="cancel">CANCEL</string>
     <string name="label_PipeEditText">Enter Some Text:</string>
+    <string name="button_ch4_examples">Chapter 4 Examples</string>
 </resources>

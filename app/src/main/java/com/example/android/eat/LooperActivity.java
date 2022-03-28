@@ -1,6 +1,7 @@
 package com.example.android.eat;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -29,6 +30,7 @@ public class LooperActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_looper);
 
+        setupActivityTitle();
         /*
          * Start the worker thread, so it is ready to
          * process messages from the queue.
@@ -223,6 +225,12 @@ public class LooperActivity extends AppCompatActivity {
                 SystemClock.sleep(1);
                 Log.d(LOG_TAG, "Executing a task Message: " + i);
             });
+        }
+    }
+    private void setupActivityTitle(){
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null){
+            actionBar.setTitle("Looper Examples");
         }
     }
 }
