@@ -94,13 +94,11 @@ public class PipeExampleActivity extends AppCompatActivity {
         public void run() {
             try {
 
-                while (Thread.currentThread().isInterrupted()) {
-                    int result = reader.read();
+                int result = reader.read();
 
-                    while (result != -1) {
-                        Log.d(LOG_TAG, "" + (char) result);
-                        result = reader.read();
-                    }
+                while (result != -1) {
+                    Log.d(LOG_TAG, "" + (char) result);
+                    result = reader.read();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
