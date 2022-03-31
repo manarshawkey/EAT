@@ -40,6 +40,13 @@ public class Ch4ThreadCommunicationActivity extends AppCompatActivity {
                     HandlerExampleActivity.class);
             startActivity(intent);
         });
+        Button messageQueueDebug = findViewById(R.id.button_messageQueueDebugExample);
+        messageQueueDebug.setOnClickListener(view -> {
+            Intent intent = new Intent(
+                    Ch4ThreadCommunicationActivity.this,
+                    MessageQueueDebugActivity.class);
+            startActivity(intent);
+        });
     }
     private void setupActivityTitle(){
         ActionBar actionBar = getSupportActionBar();

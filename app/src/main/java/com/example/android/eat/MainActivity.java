@@ -22,13 +22,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         Button ch4 = findViewById(R.id.button_chapter4);
-        ch4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,
-                        Ch4ThreadCommunicationActivity.class);
-                startActivity(intent);
-            }
+        ch4.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this,
+                    Ch4ThreadCommunicationActivity.class);
+            startActivity(intent);
         });
     }
 }
