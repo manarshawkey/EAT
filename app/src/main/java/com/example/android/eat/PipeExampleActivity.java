@@ -68,7 +68,6 @@ public class PipeExampleActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
                 if(before < count){
                     try {
-                        Log.d(LOG_TAG, "writing");
                         mWriter.write(charSequence.subSequence(before, count).toString());
                     } catch (IOException e) {
                         e.printStackTrace();

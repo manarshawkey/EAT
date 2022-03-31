@@ -9,8 +9,10 @@ package com.example.android.eat;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -52,6 +54,15 @@ public class HandlerExampleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handler_example);
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Two-way Message Passing");
+        builder.setMessage("This example simulates a long running operation " +
+                "that starts when the activity is created." +
+                "The long running task is executing in a background " +
+                " thread, meanwhile, the UI displays a progress bar " +
+                "that is removed when the thread reports the result back to the UI thread.");
+        builder.setPositiveButton("OK", (dialogInterface, i) -> { });
+        builder.create().show();
         setupActivityTitle();
 
         mProgressBar = findViewById(R.id.progressBar);
