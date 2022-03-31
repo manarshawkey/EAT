@@ -1,6 +1,7 @@
 package com.example.android.eat;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,6 +25,7 @@ public class MessageQueueDebugActivity extends AppCompatActivity {
 
         displayDialog();
         setupButton();
+        setActivityTitle();
 
         Thread t = new Thread(){
             @Override
@@ -39,6 +41,13 @@ public class MessageQueueDebugActivity extends AppCompatActivity {
             }
         };
         t.start();
+    }
+
+    private void setActivityTitle() {
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null){
+            actionBar.setTitle("Observing Message Queue Example");
+        }
     }
 
     private void setupButton() {
@@ -61,7 +70,7 @@ public class MessageQueueDebugActivity extends AppCompatActivity {
 
     private void displayDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(LOG_TAG);
+        builder.setTitle("Observe Message Queue");
         builder.setMessage("This example creates a worker thread " +
                 "when the activity is created. When the user clicks " +
                 "a button causing 'onClick' to be called, six messages " +
