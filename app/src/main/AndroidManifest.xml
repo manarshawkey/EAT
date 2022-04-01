@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EAT">
         <activity
+            android:name=".UIThreadCommunicationActivity"
+            android:exported="false" />
+        <activity
             android:name=".MessageQueueDebugActivity"
             android:exported="false" />
         <activity

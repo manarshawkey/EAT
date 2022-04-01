@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -22,8 +23,7 @@ public class MessageQueueDebugActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_queue_debug);
 
-        displayDialog();
-        setupButton();
+        setupMessageQueueDebugButton();
         setActivityTitle();
 
         Thread t = new Thread(){
@@ -40,8 +40,7 @@ public class MessageQueueDebugActivity extends AppCompatActivity {
                 Looper.loop();
             }
         };
-        //t.start();
-        postFromUIThreadToUIThread();
+        t.start();
     }
 
     private void setActivityTitle() {
@@ -51,9 +50,18 @@ public class MessageQueueDebugActivity extends AppCompatActivity {
         }
     }
 
-    private void setupButton() {
+    private void setupMessageQueueDebugButton() {
         Button messageEnqueueButton = findViewById(R.id.button_messageQueueDebug);
         messageEnqueueButton.setOnClickListener(view -> {
+
+            String message = "This example creates a worker thread " +
+                    "when the activity is created. When the user clicks " +
+                    "this button, six messages " +
+                    "are added to the queue in different ways. Afterwards, " +
+                    "we observe the state of the message queue.";
+            String title = "Observe Message Queue";
+            Utils.displayDialog(message, title, this);
+
             if(mWorkerHandler != null){
                 mWorkerHandler.sendEmptyMessageDelayed(1, 2000);
                 mWorkerHandler.sendEmptyMessage(2);
@@ -67,22 +75,5 @@ public class MessageQueueDebugActivity extends AppCompatActivity {
         });
     }
 
-    private void displayDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Observe Message Queue");
-        builder.setMessage("This example creates a worker thread " +
-                "when the activity is created. When the user clicks " +
-                "a button causing 'onClick' to be called, six messages " +
-                "are added to the queue in different ways. Afterwards, " +
-                "we observe the state of the message queue.");
-        builder.create().show();
-    }
 
-    private void postFromUIThreadToUIThread(){
-        new Handler(Looper.getMainLooper()).post(() -> Log.d(LOG_TAG,
-                "Executing task sent to the main ui thread., " +
-                "this should be printed last"));
-        runOnUiThread(() -> Log.d(LOG_TAG, "This should be printed first"));
-        Log.d(LOG_TAG, "this should be printed second");
-    }
 }

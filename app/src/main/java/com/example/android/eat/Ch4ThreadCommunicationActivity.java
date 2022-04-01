@@ -47,6 +47,13 @@ public class Ch4ThreadCommunicationActivity extends AppCompatActivity {
                     MessageQueueDebugActivity.class);
             startActivity(intent);
         });
+        Button communicateWithUIThread = findViewById(R.id.button_communicateWithUIThread);
+        communicateWithUIThread.setOnClickListener(view -> {
+            Intent intent = new Intent(
+                    Ch4ThreadCommunicationActivity.this,
+                    UIThreadCommunicationActivity.class);
+            startActivity(intent);
+        });
     }
     private void setupActivityTitle(){
         ActionBar actionBar = getSupportActionBar();
