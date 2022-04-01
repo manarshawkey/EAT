@@ -1,11 +1,9 @@
-package com.example.android.eat;
+package com.example.android.eat.Chapter4;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -13,6 +11,9 @@ import android.os.Message;
 import android.util.Log;
 import android.util.LogPrinter;
 import android.widget.Button;
+
+import com.example.android.eat.R;
+import com.example.android.eat.Utils;
 
 public class MessageQueueDebugActivity extends AppCompatActivity {
 

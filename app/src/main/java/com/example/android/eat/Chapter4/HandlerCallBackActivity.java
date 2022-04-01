@@ -1,4 +1,4 @@
-package com.example.android.eat;
+package com.example.android.eat.Chapter4;
 
 /*
  * Implementing the Handler.Callback interface is an
@@ -21,6 +21,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.widget.Button;
+
+import com.example.android.eat.R;
 
 public class HandlerCallBackActivity extends AppCompatActivity
             implements Handler.Callback {

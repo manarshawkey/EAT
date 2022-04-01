@@ -12,25 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EAT">
         <activity
-            android:name=".UIThreadCommunicationActivity"
+            android:name=".Chapter4.UIThreadCommunicationActivity"
             android:exported="false" />
         <activity
-            android:name=".MessageQueueDebugActivity"
+            android:name=".Chapter4.MessageQueueDebugActivity"
             android:exported="false" />
         <activity
-            android:name=".Ch4ThreadCommunicationActivity"
+            android:name=".Chapter4.Ch4ThreadCommunicationActivity"
             android:exported="false" />
         <activity
-            android:name=".PipeExampleActivity"
+            android:name=".Chapter4.PipeExampleActivity"
             android:exported="false" />
         <activity
-            android:name=".HandlerCallBackActivity"
+            android:name=".Chapter4.HandlerCallBackActivity"
             android:exported="false" />
         <activity
-            android:name=".HandlerExampleActivity"
+            android:name=".Chapter4.HandlerExampleActivity"
             android:exported="false" />
         <activity
-            android:name=".LooperActivity"
+            android:name=".Chapter4.LooperActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

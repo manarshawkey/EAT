@@ -1,4 +1,4 @@
-package com.example.android.eat;
+package com.example.android.eat.Chapter4;
 
 
 /*
@@ -13,12 +13,13 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.EditText;
+
+import com.example.android.eat.R;
 
 import java.io.IOException;
 import java.io.PipedReader;

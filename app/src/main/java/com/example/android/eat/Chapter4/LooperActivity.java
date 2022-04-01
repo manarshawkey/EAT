@@ -1,4 +1,4 @@
-package com.example.android.eat;
+package com.example.android.eat.Chapter4;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -12,6 +12,8 @@ import android.os.MessageQueue;
 import android.os.SystemClock;
 import android.util.Log;
 import android.widget.Button;
+
+import com.example.android.eat.R;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;

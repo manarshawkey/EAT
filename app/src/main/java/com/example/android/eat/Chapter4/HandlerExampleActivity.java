@@ -1,4 +1,4 @@
-package com.example.android.eat;
+package com.example.android.eat.Chapter4;
 /*
  * Purpose: this example simulates a long-running operation
  * that is started when the user clicks a button. The long-running
@@ -12,7 +12,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -20,6 +19,8 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
+
+import com.example.android.eat.R;
 
 import java.util.Random;
 

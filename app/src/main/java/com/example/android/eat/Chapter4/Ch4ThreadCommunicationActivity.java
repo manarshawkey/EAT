@@ -1,4 +1,4 @@
-package com.example.android.eat;
+package com.example.android.eat.Chapter4;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+
+import com.example.android.eat.R;
 
 public class Ch4ThreadCommunicationActivity extends AppCompatActivity {
 
