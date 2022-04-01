@@ -11,7 +11,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import android.util.LogPrinter;
-import android.view.View;
 import android.widget.Button;
 
 public class MessageQueueDebugActivity extends AppCompatActivity {
@@ -37,6 +36,7 @@ public class MessageQueueDebugActivity extends AppCompatActivity {
                         Log.d(LOG_TAG, "handling message - what: " + msg.what);
                     }
                 };
+                Looper.myLooper().setMessageLogging(new LogPrinter(Log.DEBUG, LOG_TAG));
                 Looper.loop();
             }
         };
@@ -59,9 +59,7 @@ public class MessageQueueDebugActivity extends AppCompatActivity {
                 mWorkerHandler.obtainMessage(3, 0, 0, new Object())
                         .sendToTarget();
                 mWorkerHandler.sendEmptyMessageDelayed(4, 300);
-                mWorkerHandler.postDelayed(() -> {
-                    Log.d(LOG_TAG, "executing task message");
-                    }, 400);
+                mWorkerHandler.postDelayed(() -> Log.d(LOG_TAG, "executing task message"), 400);
                 mWorkerHandler.sendEmptyMessage(5);
                 mWorkerHandler.dump(new LogPrinter(Log.DEBUG, LOG_TAG), "");
             }
