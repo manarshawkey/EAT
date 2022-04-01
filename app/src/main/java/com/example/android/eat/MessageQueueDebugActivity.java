@@ -40,7 +40,8 @@ public class MessageQueueDebugActivity extends AppCompatActivity {
                 Looper.loop();
             }
         };
-        t.start();
+        //t.start();
+        postFromUIThreadToUIThread();
     }
 
     private void setActivityTitle() {
@@ -75,5 +76,13 @@ public class MessageQueueDebugActivity extends AppCompatActivity {
                 "are added to the queue in different ways. Afterwards, " +
                 "we observe the state of the message queue.");
         builder.create().show();
+    }
+
+    private void postFromUIThreadToUIThread(){
+        new Handler(Looper.getMainLooper()).post(() -> Log.d(LOG_TAG,
+                "Executing task sent to the main ui thread., " +
+                "this should be printed last"));
+        runOnUiThread(() -> Log.d(LOG_TAG, "This should be printed first"));
+        Log.d(LOG_TAG, "this should be printed second");
     }
 }
