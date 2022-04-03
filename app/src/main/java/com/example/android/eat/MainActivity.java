@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.example.android.eat.Chapter4.Ch4ThreadCommunicationActivity;
+import com.example.android.eat.Chapter5.Ch5InterProcessCommunicationActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
         ch4.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this,
                     Ch4ThreadCommunicationActivity.class);
+            startActivity(intent);
+        });
+        Button ch5 = findViewById(R.id.button_chapter5);
+        ch5.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this,
+                    Ch5InterProcessCommunicationActivity.class);
             startActivity(intent);
         });
     }

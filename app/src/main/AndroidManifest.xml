@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EAT">
         <activity
+            android:name=".Chapter5.Ch5InterProcessCommunicationActivity"
+            android:exported="false" />
+        <activity
             android:name=".Chapter5.SynchronousRPCActivity"
             android:exported="false" />
         <activity
