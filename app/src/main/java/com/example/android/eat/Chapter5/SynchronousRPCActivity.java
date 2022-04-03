@@ -75,6 +75,10 @@ public class SynchronousRPCActivity extends AppCompatActivity {
         });
         t.start();
         try {
+            /* output indicating that the these calls are executed on the
+             * main thread not on binder threads, which is unexpected.
+             * Double check.
+             */
             String threadNameFast = mISynchronous.getThreadNameFast();
             Log.d(LOG_TAG, "ThreadNameFast: " + threadNameFast);
             String threadNameSlow = mISynchronous.getThreadNameSlow(3000);
