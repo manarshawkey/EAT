@@ -80,22 +80,25 @@ public class SynchronousRPCActivity extends AppCompatActivity {
         * the activity, probably due to the sleep call used in the
         * getThreadName slow.
         */
-        try {
-            /* output indicating that the these calls are executed on the
-             * main thread not on binder threads, which is unexpected.
-             * Double check.
-             */
-            String threadNameFast = mISynchronous.getThreadNameFast();
-            Log.d(LOG_TAG, "ThreadNameFast: " + threadNameFast);
-            String threadNameSlow = mISynchronous.getThreadNameSlow(3000);
-            Log.d(LOG_TAG, "ThreadNameSlow: " + threadNameSlow);
-            String threadNameBlocking = mISynchronous.getThreadNameBlocking();
-            Log.d(LOG_TAG, "ThreadNameBlocking: " + threadNameBlocking);
+        Thread t1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String threadNameFast = mISynchronous.getThreadNameFast();
+                    Log.d(LOG_TAG, "ThreadNameFast: " + threadNameFast);
+                    String threadNameSlow = mISynchronous.getThreadNameSlow(3000);
+                    Log.d(LOG_TAG, "ThreadNameSlow: " + threadNameSlow);
+                    String threadNameBlocking = mISynchronous.getThreadNameBlocking();
+                    Log.d(LOG_TAG, "ThreadNameBlocking: " + threadNameBlocking);
 
 
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        t1.start();
+
 
     }
     private void setActivityTitle() {
