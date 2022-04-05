@@ -74,6 +74,12 @@ public class SynchronousRPCActivity extends AppCompatActivity {
 
         });
         t.start();
+        /*
+        * Bug: the UI is laggy, when the button that opens this
+        * activity is clicked, it takes some time then it opens
+        * the activity, probably due to the sleep call used in the
+        * getThreadName slow.
+        */
         try {
             /* output indicating that the these calls are executed on the
              * main thread not on binder threads, which is unexpected.
