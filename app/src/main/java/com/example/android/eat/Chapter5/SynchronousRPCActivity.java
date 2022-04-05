@@ -74,32 +74,21 @@ public class SynchronousRPCActivity extends AppCompatActivity {
 
         });
         t.start();
-        /*
-        * Bug: the UI is laggy, when the button that opens this
-        * activity is clicked, it takes some time then it opens
-        * the activity, probably due to the sleep call used in the
-        * getThreadName slow.
-        */
-        Thread t1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    String threadNameFast = mISynchronous.getThreadNameFast();
-                    Log.d(LOG_TAG, "ThreadNameFast: " + threadNameFast);
-                    String threadNameSlow = mISynchronous.getThreadNameSlow(3000);
-                    Log.d(LOG_TAG, "ThreadNameSlow: " + threadNameSlow);
-                    String threadNameBlocking = mISynchronous.getThreadNameBlocking();
-                    Log.d(LOG_TAG, "ThreadNameBlocking: " + threadNameBlocking);
+        Thread t1 = new Thread(() -> {
+            try {
+                String threadNameFast = mISynchronous.getThreadNameFast();
+                Log.d(LOG_TAG, "ThreadNameFast: " + threadNameFast);
+                String threadNameSlow = mISynchronous.getThreadNameSlow(3000);
+                Log.d(LOG_TAG, "ThreadNameSlow: " + threadNameSlow);
+                String threadNameBlocking = mISynchronous.getThreadNameBlocking();
+                Log.d(LOG_TAG, "ThreadNameBlocking: " + threadNameBlocking);
 
 
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                }
+            } catch (RemoteException e) {
+                e.printStackTrace();
             }
         });
         t1.start();
-
-
     }
     private void setActivityTitle() {
         ActionBar actionBar = getSupportActionBar();
