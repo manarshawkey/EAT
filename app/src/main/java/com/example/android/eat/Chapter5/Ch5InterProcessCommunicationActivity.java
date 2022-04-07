@@ -16,7 +16,17 @@ public class Ch5InterProcessCommunicationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ch5_inter_process_communication);
 
         setupSynchronousRPCExampleButton();
+        setupAsynchronousRPCExampleButton();
         setActivityTitle();
+    }
+
+    private void setupAsynchronousRPCExampleButton() {
+        Button synchronousRPC = findViewById(R.id.button_asynchronous_RPC);
+        synchronousRPC.setOnClickListener(view -> {
+            Intent intent = new Intent(Ch5InterProcessCommunicationActivity.this,
+                    AsynchronousRPCActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void setActivityTitle() {
