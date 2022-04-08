@@ -20,10 +20,20 @@
         android:id="@+id/button_asynchronous_RPC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="96dp"
         android:text="Asynchronous RPC Example"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_synchronous_RPC" />
+
+    <Button
+        android:id="@+id/button_messengerOneWay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:text="Messenger One Way"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_asynchronous_RPC" />
 </androidx.constraintlayout.widget.ConstraintLayout>

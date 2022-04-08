@@ -24,7 +24,7 @@ package com.example.android.eat.Chapter5;
 * returns immediately. The binder gives the transaction to the server
 * process and closes the connection from the client to the server.
 * Asynchronous methods must return void, and must not have arguments
-* declared out or inout. To rettieve results, the implementation will
+* declared out or inout. To retrieve results, the implementation will
 * use a callback.
 */
 import androidx.appcompat.app.ActionBar;

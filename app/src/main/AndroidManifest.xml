@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EAT">
         <activity
+            android:name=".Chapter5.MessengerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Chapter5.MessengerOneWayActivity"
+            android:exported="false" />
+        <activity
             android:name=".Chapter5.AsynchronousRPCActivity"
             android:exported="false" />
         <activity

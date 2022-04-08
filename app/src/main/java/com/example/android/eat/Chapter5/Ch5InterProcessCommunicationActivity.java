@@ -15,9 +15,15 @@ public class Ch5InterProcessCommunicationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ch5_inter_process_communication);
 
+        setupButtons();
+
+        setActivityTitle();
+    }
+
+    private void setupButtons() {
         setupSynchronousRPCExampleButton();
         setupAsynchronousRPCExampleButton();
-        setActivityTitle();
+        setupMessengerOneWayMessagePassing();
     }
 
     private void setupAsynchronousRPCExampleButton() {
@@ -41,6 +47,14 @@ public class Ch5InterProcessCommunicationActivity extends AppCompatActivity {
         synchronousRPC.setOnClickListener(view -> {
             Intent intent = new Intent(Ch5InterProcessCommunicationActivity.this,
                     SynchronousRPCActivity.class);
+            startActivity(intent);
+        });
+    }
+    private void setupMessengerOneWayMessagePassing(){
+        Button messengerOneWay = findViewById(R.id.button_messengerOneWay);
+        messengerOneWay.setOnClickListener(view -> {
+            Intent intent = new Intent(Ch5InterProcessCommunicationActivity.this,
+                    MessengerActivity.class);
             startActivity(intent);
         });
     }
