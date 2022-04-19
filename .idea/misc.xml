@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_asyncronous_rpcactivity.xml" value="0.14270833333333333" />
+        <entry key="app/src/main/res/layout/activity_binding.xml" value="0.22083333333333333" />
         <entry key="app/src/main/res/layout/activity_ch4_thread_communication.xml" value="0.17447916666666666" />
         <entry key="app/src/main/res/layout/activity_ch5_inter_process_communication.xml" value="0.14270833333333333" />
         <entry key="app/src/main/res/layout/activity_handler_call_back.xml" value="0.25" />
@@ -11,6 +12,7 @@
         <entry key="app/src/main/res/layout/activity_looper.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15579710144927536" />
         <entry key="app/src/main/res/layout/activity_message_queue_debug.xml" value="0.11927083333333334" />
+        <entry key="app/src/main/res/layout/activity_messenger.xml" value="0.13385416666666666" />
         <entry key="app/src/main/res/layout/activity_messenger_one_way.xml" value="0.14270833333333333" />
         <entry key="app/src/main/res/layout/activity_pipe_example.xml" value="0.18333333333333332" />
         <entry key="app/src/main/res/layout/activity_uithread_communication.xml" value="0.17980072463768115" />

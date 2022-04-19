@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.renderscript.ScriptGroup;
 import android.widget.Button;
 
 import com.example.android.eat.R;
@@ -24,6 +25,7 @@ public class Ch5InterProcessCommunicationActivity extends AppCompatActivity {
         setupSynchronousRPCExampleButton();
         setupAsynchronousRPCExampleButton();
         setupMessengerOneWayMessagePassing();
+        setupLocalBinding();
     }
 
     private void setupAsynchronousRPCExampleButton() {
@@ -55,6 +57,14 @@ public class Ch5InterProcessCommunicationActivity extends AppCompatActivity {
         messengerOneWay.setOnClickListener(view -> {
             Intent intent = new Intent(Ch5InterProcessCommunicationActivity.this,
                     MessengerActivity.class);
+            startActivity(intent);
+        });
+    }
+    private void setupLocalBinding(){
+        Button localBinding = findViewById(R.id.button_localBinding);
+        localBinding.setOnClickListener(view -> {
+            Intent intent = new Intent(Ch5InterProcessCommunicationActivity.this,
+                    BindingActivity.class);
             startActivity(intent);
         });
     }
