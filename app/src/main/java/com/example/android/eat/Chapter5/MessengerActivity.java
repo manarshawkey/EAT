@@ -13,6 +13,8 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.android.eat.R;
 
@@ -53,18 +55,25 @@ public class MessengerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messenger);
-        sayHello(new View(this));
+        //sayHello(new View(this));
+        setUpSendMessageButton();
     }
-    public void sayHello(View v) {
-        if (!bound) return;
-        // Create and send a message to the service, using a supported 'what' value
-        Message msg = Message.obtain(null, MessengerService.MSG_SAY_HELLO, 0, 0);
-        try {
-            mService.send(msg);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
+
+    private void setUpSendMessageButton() {
+        Button sendMessage = findViewById(R.id.button_sendMsgToService);
+        sendMessage.setOnClickListener(view -> {
+            if(bound){
+                Toast.makeText(this, "bound successfully", Toast.LENGTH_SHORT).show();
+                Message msg = Message.obtain(null, MessengerService.MSG_SAY_HELLO, 0, 0);
+                try {
+                    mService.send(msg);
+                } catch (RemoteException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
+    
 
     @Override
     protected void onStart() {

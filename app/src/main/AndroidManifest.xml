@@ -61,6 +61,8 @@
         </activity>
         <service android:name="com.example.android.eat.Chapter5.LocalService"
             android:enabled="true"/>
+        <service android:name=".Chapter5.MessengerService"/>
+        <service android:name=".Chapter5.WorkerThreadService"/>
     </application>
 
 </manifest>
