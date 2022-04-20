@@ -1,7 +1,5 @@
 package com.example.android.eat.Chapter5;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,25 +9,21 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
-import android.os.RemoteException;
 import android.util.Log;
-import android.view.View;
+
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.android.eat.R;
 import com.example.android.eat.Utils;
 
-import java.io.FileDescriptor;
 
 public class BindingActivity extends AppCompatActivity {
 
     private final String LOG_TAG = BindingActivity.class.getSimpleName();
     private LocalService mService;
     private boolean mBound = false;
-    private ServiceConnection mConnection = new ServiceConnection() {
+    private final ServiceConnection mConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Log.d(LOG_TAG, "ServiceConnection::onServiceConnected()");

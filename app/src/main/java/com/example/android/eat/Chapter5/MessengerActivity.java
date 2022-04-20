@@ -12,7 +12,6 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -31,7 +30,7 @@ public class MessengerActivity extends AppCompatActivity {
     /**
      * Class for interacting with the main interface of the service.
      */
-    private ServiceConnection mConnection = new ServiceConnection() {
+    private final ServiceConnection mConnection = new ServiceConnection() {
         public void onServiceConnected(ComponentName className, IBinder service) {
             // This is called when the connection with the service has been
             // established, giving us the object we can use to
@@ -73,7 +72,7 @@ public class MessengerActivity extends AppCompatActivity {
             }
         });
     }
-    
+
 
     @Override
     protected void onStart() {

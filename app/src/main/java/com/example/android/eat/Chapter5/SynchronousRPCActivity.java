@@ -3,12 +3,10 @@ package com.example.android.eat.Chapter5;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Binder;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.util.Log;
-import android.util.LogPrinter;
 
 
 import com.example.android.eat.ISynchronous;

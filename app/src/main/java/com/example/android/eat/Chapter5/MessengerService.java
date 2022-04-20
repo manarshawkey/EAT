@@ -22,7 +22,7 @@ public class MessengerService extends Service {
      * Handler of incoming messages from clients.
      */
     static class IncomingHandler extends Handler {
-        private Context applicationContext;
+        private final Context applicationContext;
 
         IncomingHandler(Context context) {
             applicationContext = context.getApplicationContext();
@@ -30,12 +30,10 @@ public class MessengerService extends Service {
 
         @Override
         public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case MSG_SAY_HELLO:
-                    Toast.makeText(applicationContext, "hello!", Toast.LENGTH_SHORT).show();
-                    break;
-                default:
-                    super.handleMessage(msg);
+            if (msg.what == MSG_SAY_HELLO) {
+                Toast.makeText(applicationContext, "hello!", Toast.LENGTH_SHORT).show();
+            } else {
+                super.handleMessage(msg);
             }
         }
     }

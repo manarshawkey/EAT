@@ -13,7 +13,6 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 
 import com.example.android.eat.R;
