@@ -8,6 +8,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.Messenger;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,7 +30,7 @@ public class WorkerThreadService extends Service {
     public void onCreate() {
         Log.d(LOG_TAG, "onCreate");
         super.onCreate();
-        mWorkerThread = new WorkerThread(); //this line is not in example by the book   .
+        mWorkerThread = new WorkerThread(); //this line is not in example by the book.
         mWorkerThread.start();
     }
 
@@ -55,8 +56,6 @@ public class WorkerThreadService extends Service {
         * Handler in the Service.
         * */
         Log.d(LOG_TAG, "onBind()");
-        mWorkerThread = new WorkerThread();
-        mWorkerMessenger = new Messenger(mWorkerThread.mWorkerHandler);
         return mWorkerMessenger.getBinder();
     }
 
@@ -81,11 +80,13 @@ public class WorkerThreadService extends Service {
                     * Process the incoming messages.
                     */
                     Log.d(LOG_TAG, "Handling message: " + msg.what);
+                    Toast.makeText(WorkerThreadService.this, "hello", Toast.LENGTH_SHORT).show();
                 }
             };
             //associate this newly created handler to the Messenger,
             //so that it process the incoming messages from client processes.
             onWorkerPrepared();
+            Looper.loop();
         }
         public void quit(){
             Log.d(LOG_TAG, "WorkerThread::quit()");

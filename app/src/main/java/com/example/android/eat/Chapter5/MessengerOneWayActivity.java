@@ -14,6 +14,7 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.android.eat.R;
 import com.example.android.eat.Utils;
@@ -60,7 +61,7 @@ public class MessengerOneWayActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        bindService(new Intent(this, MessengerService.class),
+        bindService(new Intent(this, WorkerThreadService.class),
                 mRemoteConnection, Context.BIND_AUTO_CREATE);
     }
 
