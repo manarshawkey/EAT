@@ -16,6 +16,7 @@ import android.util.Log;
 import android.widget.Button;
 
 import com.example.android.eat.R;
+import com.example.android.eat.Utils;
 
 public class MessengerOneWayActivity extends AppCompatActivity {
 
@@ -45,6 +46,14 @@ public class MessengerOneWayActivity extends AppCompatActivity {
 
         setActivityTitle();
 
+        Utils.displayDialog("In this example, this activity representing a client" +
+                        " process communicates with a service executing in a server process." +
+                        " The service has an associated messenger and it passes a reference of it " +
+                        "to the client process when the binding completes. On pressing the button, a message" +
+                        " is sent from the client process to the server process, a toast msg with the text" +
+                        " 'hello' is displayed as a result of executing the message in the server process.",
+                "One Way Communication", this);
+
         setupOneWaySendButton();
 
     }
@@ -72,7 +81,8 @@ public class MessengerOneWayActivity extends AppCompatActivity {
             if(mBound){
                 Log.d(LOG_TAG, "service is bound");
                 try {
-                    mRemoteServiceMessenger.send(Message.obtain(null, 2, 0, 0));
+                    mRemoteServiceMessenger.send(Message.obtain(null, MessengerService.MSG_SAY_HELLO,
+                            0, 0));
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }

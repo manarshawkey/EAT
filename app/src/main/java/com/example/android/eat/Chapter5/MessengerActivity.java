@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.android.eat.R;
+import com.example.android.eat.Utils;
 
 public class MessengerActivity extends AppCompatActivity {
 
@@ -54,7 +55,7 @@ public class MessengerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messenger);
-        //sayHello(new View(this));
+
         setUpSendMessageButton();
     }
 

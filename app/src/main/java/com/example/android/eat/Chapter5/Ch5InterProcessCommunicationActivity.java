@@ -56,7 +56,7 @@ public class Ch5InterProcessCommunicationActivity extends AppCompatActivity {
         Button messengerOneWay = findViewById(R.id.button_messengerOneWay);
         messengerOneWay.setOnClickListener(view -> {
             Intent intent = new Intent(Ch5InterProcessCommunicationActivity.this,
-                    MessengerActivity.class);
+                    MessengerOneWayActivity.class);
             startActivity(intent);
         });
     }
