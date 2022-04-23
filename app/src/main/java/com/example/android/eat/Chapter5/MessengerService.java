@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
-import android.util.Log;
 import android.widget.Toast;
 
 public class MessengerService extends Service {
@@ -49,8 +48,6 @@ public class MessengerService extends Service {
      */
     @Override
     public IBinder onBind(Intent intent) {
-        Log.d(LOG_TAG, "onBind()");
-        //Toast.makeText(getApplicationContext(), "binding", Toast.LENGTH_SHORT).show();
         mMessenger = new Messenger(new IncomingHandler(this));
         return mMessenger.getBinder();
     }

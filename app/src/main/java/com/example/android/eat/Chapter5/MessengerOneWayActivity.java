@@ -28,7 +28,6 @@ public class MessengerOneWayActivity extends AppCompatActivity {
     private final ServiceConnection mRemoteConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder service) {
-            Log.d(LOG_TAG, "ServiceConnection::onServiceConnected()");
             mRemoteServiceMessenger = new Messenger(service);
             mBound = true;
         }
@@ -61,9 +60,8 @@ public class MessengerOneWayActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        boolean isBound = bindService(new Intent(this, MessengerService.class),
+        bindService(new Intent(this, MessengerService.class),
                 mRemoteConnection, Context.BIND_AUTO_CREATE);
-        Log.d(LOG_TAG, "binding status in onStart(): " + isBound);
     }
 
     @Override
@@ -79,7 +77,6 @@ public class MessengerOneWayActivity extends AppCompatActivity {
         Button oneWaySend = findViewById(R.id.button_oneWaySend);
         oneWaySend.setOnClickListener(view -> {
             if(mBound){
-                Log.d(LOG_TAG, "service is bound");
                 try {
                     mRemoteServiceMessenger.send(Message.obtain(null, MessengerService.MSG_SAY_HELLO,
                             0, 0));
