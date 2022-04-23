@@ -28,7 +28,6 @@ public class WorkerThreadService extends Service {
     Messenger mWorkerMessenger;
     @Override
     public void onCreate() {
-        Log.d(LOG_TAG, "onCreate");
         super.onCreate();
         mWorkerThread = new WorkerThread(); //this line is not in example by the book.
         mWorkerThread.start();
@@ -43,7 +42,6 @@ public class WorkerThreadService extends Service {
         * A handler to the worker thread is connected to the Messenger upon construction,
         * this handler will process incoming messages from client processes.
         * */
-        Log.d(LOG_TAG, "onWorkerPrepared()");
         mWorkerMessenger = new Messenger(mWorkerThread.mWorkerHandler);
     }
 
@@ -55,13 +53,11 @@ public class WorkerThreadService extends Service {
         * so that the client can communicate with the associated
         * Handler in the Service.
         * */
-        Log.d(LOG_TAG, "onBind()");
         return mWorkerMessenger.getBinder();
     }
 
     @Override
     public void onDestroy() {
-        Log.d(LOG_TAG, "onDestroy()");
         super.onDestroy();
         mWorkerThread.quit();
     }
@@ -71,7 +67,6 @@ public class WorkerThreadService extends Service {
 
         @Override
         public void run() {
-            Log.d(LOG_TAG, "WorkerThread::run()");
             Looper.prepare();
             mWorkerHandler = new Handler(Looper.myLooper()){
                 @Override
@@ -89,7 +84,6 @@ public class WorkerThreadService extends Service {
             Looper.loop();
         }
         public void quit(){
-            Log.d(LOG_TAG, "WorkerThread::quit()");
             mWorkerHandler.getLooper().quit();
         }
     }
