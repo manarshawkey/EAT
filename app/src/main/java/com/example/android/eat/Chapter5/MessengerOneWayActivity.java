@@ -44,7 +44,7 @@ public class MessengerOneWayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messenger_one_way);
 
-        setActivityTitle();
+        Utils.setActivityTitle(this, "Messenger One Way");
 
         Utils.displayDialog("In this example, this activity representing a client" +
                         " process communicates with a service executing in a server process." +
@@ -86,12 +86,5 @@ public class MessengerOneWayActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    private void setActivityTitle(){
-        ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null){
-            actionBar.setTitle("Messenger One Way Message Passing");
-        }
     }
 }

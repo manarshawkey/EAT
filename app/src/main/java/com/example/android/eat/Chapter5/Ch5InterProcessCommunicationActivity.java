@@ -10,6 +10,8 @@ import android.renderscript.ScriptGroup;
 import android.widget.Button;
 
 import com.example.android.eat.R;
+import com.example.android.eat.Utils;
+
 public class Ch5InterProcessCommunicationActivity extends AppCompatActivity {
 
     @Override
@@ -19,7 +21,7 @@ public class Ch5InterProcessCommunicationActivity extends AppCompatActivity {
 
         setupButtons();
 
-        setActivityTitle();
+        Utils.setActivityTitle(this, "Interprocess Communication");
     }
 
     private void setupButtons() {
@@ -39,12 +41,6 @@ public class Ch5InterProcessCommunicationActivity extends AppCompatActivity {
         });
     }
 
-    private void setActivityTitle() {
-        ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null){
-            actionBar.setTitle("Interprocess Communication");
-        }
-    }
 
     private void setupSynchronousRPCExampleButton() {
         Button synchronousRPC = findViewById(R.id.button_synchronous_RPC);

@@ -42,8 +42,10 @@ public class BindingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_binding);
+
         setupTestButton();
-        setupActivityTitle();
+        Utils.setActivityTitle(this, "Local Binding");
+
         Utils.displayDialog("On Clicking the button, a call to a bound service's public " +
                 "method 'generateRandomInt()' is initiated, and the generated number " +
                 "is displayed in a Toast message.", "Local Service", this);
@@ -77,12 +79,6 @@ public class BindingActivity extends AppCompatActivity {
         super.onStop();
         unbindService(mConnection);
         mBound = false;
-    }
-    private void setupActivityTitle(){
-        ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null){
-            actionBar.setTitle("Local Binding");
-        }
     }
 
 }

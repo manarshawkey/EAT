@@ -11,6 +11,7 @@ import android.util.Log;
 
 import com.example.android.eat.ISynchronous;
 import com.example.android.eat.R;
+import com.example.android.eat.Utils;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -56,7 +57,7 @@ public class SynchronousRPCActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_synchronous_rpcactivity);
 
-        setActivityTitle();
+        Utils.setActivityTitle(this, "Synchronous RPC");
 
         ISynchronous mISynchronous = ISynchronous.Stub.asInterface(mBinder);
 
@@ -88,10 +89,5 @@ public class SynchronousRPCActivity extends AppCompatActivity {
         });
         t1.start();
     }
-    private void setActivityTitle() {
-        ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null){
-            actionBar.setTitle("Synchronous RPC");
-        }
-    }
+
 }

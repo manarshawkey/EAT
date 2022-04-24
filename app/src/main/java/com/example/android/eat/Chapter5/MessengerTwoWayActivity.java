@@ -45,6 +45,9 @@ public class MessengerTwoWayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messenger_two_way);
+
+        Utils.setActivityTitle(this, "Messenger Two Way");
+
         setUpSendMessageButton();
         Utils.displayDialog("This example illustrates two-way communication " +
                 "between an activity and a service executing in different " +

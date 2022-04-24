@@ -47,7 +47,7 @@ public class AsynchronousRPCActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_asyncronous_rpcactivity);
 
-        setActivityTitle();
+        Utils.setActivityTitle(this, "Asynchronous RPC");
 
         String msg = "This is a simple example of asynchronous RPC. " +
                 "The remote interface is defined by one method that contains " +
@@ -75,12 +75,6 @@ public class AsynchronousRPCActivity extends AppCompatActivity {
             server.getThreadName(clientCallback);
         } catch (RemoteException e) {
             e.printStackTrace();
-        }
-    }
-    private void setActivityTitle() {
-        ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null){
-            actionBar.setTitle("Asynchronous RPC");
         }
     }
 }
