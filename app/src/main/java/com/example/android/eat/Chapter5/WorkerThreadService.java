@@ -53,6 +53,15 @@ public class WorkerThreadService extends Service {
         * so that the client can communicate with the associated
         * Handler in the Service.
         * */
+
+        /*
+        * BUG: can't invoke the method getBinder on a null reference.
+        * Sounds like a race condition. The mWorkerMessenger object is
+        * assigned in the worker thread that starts within the service onCreate
+        * method. The call to onBind maybe is happening while the execution
+        * of the onWorker prepared -within which mWorkerMessenger is assigned-
+        * is not finished yet.
+        * */
         return mWorkerMessenger.getBinder();
     }
 
