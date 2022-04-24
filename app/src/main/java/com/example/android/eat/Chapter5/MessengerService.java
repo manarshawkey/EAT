@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
+import android.os.RemoteException;
 import android.widget.Toast;
 
 public class MessengerService extends Service {
@@ -29,10 +30,17 @@ public class MessengerService extends Service {
 
         @Override
         public void handleMessage(Message msg) {
-            if (msg.what == MSG_SAY_HELLO) {
-                Toast.makeText(applicationContext, "hello!", Toast.LENGTH_SHORT).show();
-            } else {
-                super.handleMessage(msg);
+            switch (msg.what) {
+                case MSG_SAY_HELLO:
+                    Toast.makeText(applicationContext, "hello!", Toast.LENGTH_SHORT).show();
+                    break;
+                case MessengerTwoWayActivity.MSG_TWO_WAY:
+                    try {
+                        msg.replyTo.send(Message.obtain(null, 3));
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                    break;
             }
         }
     }

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EAT">
         <activity
+            android:name=".Chapter5.MessengerTwoWayActivity"
+            android:exported="false" />
+        <activity
             android:name=".Chapter5.BindingActivity"
             android:exported="false" />
         <activity
@@ -59,10 +62,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name="com.example.android.eat.Chapter5.LocalService"
-            android:enabled="true"/>
-        <service android:name=".Chapter5.MessengerService"/>
-        <service android:name=".Chapter5.WorkerThreadService"/>
+
+        <service
+            android:name=".Chapter5.LocalService"
+            android:enabled="true" />
+        <service android:name=".Chapter5.MessengerService" />
+        <service android:name=".Chapter5.WorkerThreadService" />
     </application>
 
 </manifest>
