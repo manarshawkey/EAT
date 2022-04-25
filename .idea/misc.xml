@@ -10,7 +10,7 @@
         <entry key="app/src/main/res/layout/activity_handler_call_back.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_handler_example.xml" value="0.15579710144927536" />
         <entry key="app/src/main/res/layout/activity_looper.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.15579710144927536" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_message_queue_debug.xml" value="0.11927083333333334" />
         <entry key="app/src/main/res/layout/activity_messenger.xml" value="0.13385416666666666" />
         <entry key="app/src/main/res/layout/activity_messenger_one_way.xml" value="0.14270833333333333" />
