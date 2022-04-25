@@ -23,11 +23,12 @@ import androidx.annotation.Nullable;
 * */
 public class WorkerThreadService extends Service {
 
-    private static final String LOG_TAG = WorkerThread.class.getSimpleName();
+    private static final String LOG_TAG = WorkerThreadService.class.getSimpleName();
     WorkerThread mWorkerThread;
     Messenger mWorkerMessenger;
     @Override
     public void onCreate() {
+        //Log.d(LOG_TAG, "onCreate");
         super.onCreate();
         mWorkerThread = new WorkerThread(); //this line is not in example by the book.
         mWorkerThread.start();
@@ -48,6 +49,7 @@ public class WorkerThreadService extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
+        //Log.d(LOG_TAG, "onBind");
         /*
         * A binding client receives the IBinder object of the Messenger,
         * so that the client can communicate with the associated
@@ -91,6 +93,7 @@ public class WorkerThreadService extends Service {
             //so that it process the incoming messages from client processes.
             onWorkerPrepared();
             Looper.loop();
+            //Log.d(LOG_TAG, "onCreate is done.");
         }
         public void quit(){
             mWorkerHandler.getLooper().quit();
