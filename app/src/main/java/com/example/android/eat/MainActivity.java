@@ -23,12 +23,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        Button ch4 = findViewById(R.id.button_chapter4);
-        ch4.setOnClickListener(view -> {
+
+        Utils.setUpIntentToOpenChapterActivity((Button) findViewById(R.id.button_chapter4)
+                , MainActivity.this,
+                Ch4ThreadCommunicationActivity.class);
+
+        /*ch4.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this,
                     Ch4ThreadCommunicationActivity.class);
             startActivity(intent);
-        });
+        });*/
         Button ch5 = findViewById(R.id.button_chapter5);
         ch5.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this,

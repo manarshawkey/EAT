@@ -3,6 +3,8 @@ package com.example.android.eat;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.widget.Button;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -21,5 +23,12 @@ public class Utils {
         if(actionBar != null){
             actionBar.setTitle(title);
         }
+    }
+    public static void setUpIntentToOpenChapterActivity(Button button, Context packageContext,
+                                                        Class activityClass){
+        button.setOnClickListener(view -> {
+            Intent intent = new Intent(packageContext, activityClass);
+            packageContext.startActivity(intent);
+        });
     }
 }
