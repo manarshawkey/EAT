@@ -5,11 +5,13 @@ package com.example.android.eat;
  * included in Efficient Android Threads Book.
  */
 
-import androidx.appcompat.app.AppCompatActivity;
+//import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.android.eat.Chapter4.Ch4ThreadCommunicationActivity;
 import com.example.android.eat.Chapter5.Ch5InterProcessCommunicationActivity;

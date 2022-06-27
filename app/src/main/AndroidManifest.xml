@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EAT">
         <activity
+            android:name=".MainActivity0"
+            android:exported="false" />
+        <activity
             android:name=".Chapter6.Ch6MemoryManagementActivity"
             android:exported="false" />
         <activity
