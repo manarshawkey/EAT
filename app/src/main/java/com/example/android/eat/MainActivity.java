@@ -5,7 +5,6 @@ package com.example.android.eat;
  * included in Efficient Android Threads Book.
  */
 
-//import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
