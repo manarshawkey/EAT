@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.android.eat.Chapter4.Ch4ThreadCommunicationActivity;
 import com.example.android.eat.Chapter5.Ch5InterProcessCommunicationActivity;
 import com.example.android.eat.Chapter6.Ch6MemoryManagementActivity;
+import com.example.android.eat.Chapter7.Ch7ThreadLifeCycle;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
         ch6.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this,
                     Ch6MemoryManagementActivity.class);
+            startActivity(intent);
+        });
+        Button ch7 = findViewById(R.id.button_chapter7);
+        ch7.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, Ch7ThreadLifeCycle.class);
             startActivity(intent);
         });
     }
