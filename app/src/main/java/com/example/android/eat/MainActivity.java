@@ -6,11 +6,15 @@ package com.example.android.eat;
  */
 
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.android.eat.Chapter4.Ch4ThreadCommunicationActivity;
 import com.example.android.eat.Chapter5.Ch5InterProcessCommunicationActivity;
@@ -25,6 +29,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        boolean hasPermission = (ContextCompat.checkSelfPermission(MainActivity.this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED);
+        if (!hasPermission) {
+            //ask permission
+            ActivityCompat.requestPermissions(MainActivity.this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+        }
+        else {
+
+            //you have permission, create your file
+        }
 
         Utils.setUpIntentToOpenChapterActivity((Button) findViewById(R.id.button_chapter4)
                 , MainActivity.this,

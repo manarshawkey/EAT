@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/layout/activity_ch4_thread_communication.xml" value="0.17447916666666666" />
         <entry key="app/src/main/res/layout/activity_ch5_inter_process_communication.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_ch6_memory_management.xml" value="0.23143115942028986" />
+        <entry key="app/src/main/res/layout/activity_ch7_thread_life_cycle.xml" value="0.1082427536231884" />
         <entry key="app/src/main/res/layout/activity_handler_call_back.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_handler_example.xml" value="0.15579710144927536" />
         <entry key="app/src/main/res/layout/activity_looper.xml" value="0.335" />
