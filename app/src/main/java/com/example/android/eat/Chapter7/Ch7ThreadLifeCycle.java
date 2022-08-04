@@ -26,10 +26,13 @@ public class Ch7ThreadLifeCycle extends AppCompatActivity {
 
         Thread.setDefaultUncaughtExceptionHandler(new ErrorReportExceptionHandler());
 
+        setupUncaughtExceptionButton();
 
+    }
+
+    private void setupUncaughtExceptionButton() {
         Button uncaughtExceptionButton = findViewById(R.id.button_uncoughtException);
         uncaughtExceptionButton.setOnClickListener(view -> {
-            //try to throw an exception without catching it ?
 
             String message = "There is an uncaught exception handler" +
                     " attached to the main thread, whenever an unexpected error occurs, " +
@@ -46,9 +49,9 @@ public class Ch7ThreadLifeCycle extends AppCompatActivity {
             builder.setPositiveButton("OK", (dialogInterface, i) -> introduceAnUncaughtException());
             builder.show();
         });
-
     }
 
+    //try to throw an exception without catching it
     private void introduceAnUncaughtException() {
         //int [] a = new int[4];
         //a[4] = 10;
