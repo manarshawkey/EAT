@@ -6,7 +6,7 @@ import androidx.annotation.UiThread;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -31,6 +31,14 @@ public class Ch7ThreadLifeCycle extends AppCompatActivity {
         setupThreadDefAnonymousInnerClassButton();
         setUpThreadDefPublicClassButton();
         setupThreadDefStaticInnerClassButton();
+        setupThreadInterruptionExampleButton();
+    }
+    private void setupThreadInterruptionExampleButton(){
+        Button threadRetain = findViewById(R.id.button_thread_interruption_example);
+        threadRetain.setOnClickListener(view -> {
+            Intent intent = new Intent(Ch7ThreadLifeCycle.this, ThreadInterruptionActivity.class);
+            startActivity(intent);
+        });
     }
     private void setupThreadDefAnonymousInnerClassButton(){
         Button anonymousInnerclassButton = findViewById(R.id.button_thread_def_anonymous_inner_class);

@@ -45,4 +45,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_thread_def_standalone_class" />
+
+    <Button
+        android:id="@+id/button_thread_interruption_example"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Thread Interruption Example"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_thread_def_static_inner_class" />
 </androidx.constraintlayout.widget.ConstraintLayout>

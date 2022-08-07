@@ -18,6 +18,7 @@
         <entry key="app/src/main/res/layout/activity_messenger_one_way.xml" value="0.14270833333333333" />
         <entry key="app/src/main/res/layout/activity_messenger_two_way.xml" value="0.14791666666666667" />
         <entry key="app/src/main/res/layout/activity_pipe_example.xml" value="0.18333333333333332" />
+        <entry key="app/src/main/res/layout/activity_thread_retain.xml" value="0.10989583333333333" />
         <entry key="app/src/main/res/layout/activity_uithread_communication.xml" value="0.17980072463768115" />
       </map>
     </option>
