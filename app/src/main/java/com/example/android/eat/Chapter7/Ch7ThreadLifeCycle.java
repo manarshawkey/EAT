@@ -32,10 +32,18 @@ public class Ch7ThreadLifeCycle extends AppCompatActivity {
         setUpThreadDefPublicClassButton();
         setupThreadDefStaticInnerClassButton();
         setupThreadInterruptionExampleButton();
+        setupThreadRetainExampleButton();
+    }
+    private void setupThreadRetainExampleButton(){
+        Button threadRetain = findViewById(R.id.button_thread_retain_example);
+        threadRetain.setOnClickListener(view -> {
+            Intent intent = new Intent(Ch7ThreadLifeCycle.this, ThreadRetainActivity.class);
+            startActivity(intent);
+        });
     }
     private void setupThreadInterruptionExampleButton(){
-        Button threadRetain = findViewById(R.id.button_thread_interruption_example);
-        threadRetain.setOnClickListener(view -> {
+        Button threadInterruption = findViewById(R.id.button_thread_interruption_example);
+        threadInterruption.setOnClickListener(view -> {
             Intent intent = new Intent(Ch7ThreadLifeCycle.this, ThreadInterruptionActivity.class);
             startActivity(intent);
         });
