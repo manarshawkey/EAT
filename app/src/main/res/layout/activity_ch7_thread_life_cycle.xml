@@ -65,4 +65,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_thread_interruption_example" />
+
+    <Button
+        android:id="@+id/button_thread_retain_with_fragment_example"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Thread Retain With Fragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_thread_retain_example" />
 </androidx.constraintlayout.widget.ConstraintLayout>

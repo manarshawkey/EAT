@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EAT">
         <activity
+            android:name=".Chapter7.ThreadRetainWithFragmentActivity"
+            android:exported="false" />
+        <activity
             android:name=".Chapter7.ThreadRetainActivity"
             android:exported="false" />
         <activity
